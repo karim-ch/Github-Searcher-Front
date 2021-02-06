@@ -1,14 +1,19 @@
 import React from 'react';
 import GithubElementsList from './components/GithubElementsList';
 import Search from './components/Search';
+import withStyle from './withStyle';
 
-function Github() {
+interface GithubProps {
+  className?: string;
+}
+
+const Github: React.FunctionComponent<GithubProps> = ({ className }) => {
   return (
-    <div>
+    <div className={className}>
       <Search />
       <GithubElementsList />
     </div>
   );
-}
+};
 
-export default Github;
+export default withStyle(Github);

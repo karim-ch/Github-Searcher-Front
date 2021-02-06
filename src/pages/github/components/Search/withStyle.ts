@@ -1,15 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import { themeGet } from '@styled-system/theme-get';
 
 export default (component: React.FunctionComponent) => styled(component)`
-  text-align: center;
-  width: 100%;
-  margin-top: 10%;
-
   .search-header {
     display: flex;
     justify-content: center;
+    width: fit-content;
 
     > svg {
       width: 50px;
@@ -19,8 +15,17 @@ export default (component: React.FunctionComponent) => styled(component)`
   }
 
   .search-inputs {
-    > input {
-      margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    width: fit-content;
+    position: relative;
+
+    .query-input {
+    }
+
+    .dropdown-menu-title {
+      margin-left: 20px;
     }
   }
 `;

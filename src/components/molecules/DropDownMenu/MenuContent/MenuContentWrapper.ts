@@ -1,0 +1,33 @@
+import styled from 'styled-components';
+import { themeGet } from '@styled-system/theme-get';
+
+const MenuContentWrapper = styled.div`
+  transition: max-height 0.7s cubic-bezier(0, 1, 0, 1);
+  position: absolute;
+  z-index: 2;
+  top: 100%;
+  right: 0;
+
+  &.opened {
+    max-height: 500px;
+    transition: max-height 1s ease-in-out;
+    border-radius: 2px;
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.2);
+
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+    button {
+      border: none;
+      padding: 10px;
+      background-color: transparent;
+      outline: none;
+      &:hover {
+        background-color: ${themeGet('colors.lightGray')};
+      }
+    }
+  }
+`;
+
+export default MenuContentWrapper;

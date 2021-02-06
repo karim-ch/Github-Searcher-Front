@@ -41,6 +41,13 @@ const globalStyles = createGlobalStyle`
     }
   }
   
+  .dropdown-menu-title {
+    color: ${themeGet('colors.anthracite')};
+    background-color: ${themeGet('colors.white')};
+    border: solid 1px ${themeGet('colors.lightGray')};
+    padding: 0 20px;
+  }
+  
   #root {
     position: relative;
     background-color: ${themeGet('colors.white')};
