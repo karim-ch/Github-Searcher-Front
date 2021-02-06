@@ -1,21 +1,12 @@
-import React, { useCallback } from 'react';
-import debounce from 'lodash/debounce';
-import useSearch from './useSearch';
+import React from 'react';
+import GithubElementsList from './components/GithubElementsList';
+import Search from './components/Search';
 
 function Github() {
-  const { setQuery, data } = useSearch();
-
-  console.log(data);
-
-  const changeSearchFor = debounce(setQuery, 1000);
-  const handleChange = useCallback(
-    (event: React.ChangeEvent<HTMLInputElement>) => changeSearchFor(event.target.value),
-    [changeSearchFor],
-  );
-
   return (
-    <div className='App'>
-      <input onChange={handleChange} placeholder='type here' />
+    <div>
+      <Search />
+      <GithubElementsList />
     </div>
   );
 }

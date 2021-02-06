@@ -1,5 +1,4 @@
 import { css } from 'styled-components';
-import { themeGet } from '@styled-system/theme-get';
 
 export default css`
   html,
@@ -85,9 +84,11 @@ export default css`
     margin: 0;
     padding: 0;
     border: 0;
+    font: inherit;
     font-size: 100%;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
       'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+
     vertical-align: baseline;
     outline: none;
   }
