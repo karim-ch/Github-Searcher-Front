@@ -11,6 +11,8 @@ const myTheme: DefaultTheme = {
   },
   colors: {
     white: '#FFFFFF',
+    blue: '#1057fb',
+    darkBlue: '#0a192f',
     lightGray: '#dadada',
     anthracite: '#7d7d7d',
   },

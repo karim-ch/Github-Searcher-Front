@@ -30,7 +30,15 @@ const globalStyles = createGlobalStyle`
   h6 {
     font-size: .9rem;
   }
-  
+
+  p {
+    margin: 0 0 15px 0;
+    &:last-child,
+    &:last-of-type {
+      margin: 0;
+    }
+  }
+    
   input {
     border-radius: 3px;
     border: solid 1px ${themeGet('colors.lightGray')};

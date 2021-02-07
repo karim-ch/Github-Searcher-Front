@@ -135,5 +135,5 @@ export type SearchDispatchTypes = SearchFail | SearchLoading | SearchSuccess;
 
 export interface SearchQuery {
   query: string;
-  type: 'users' | 'repository';
+  type: 'users' | 'repositories';
 }

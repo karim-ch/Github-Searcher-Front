@@ -1,8 +1,9 @@
 import React from 'react';
 import useSearch from './useSearch';
 import { User as UserType } from '../../../../redux/github/actions';
-import User from './components/User';
+import UserCard from './components/UserCard';
 import withStyle from './withStyle';
+import RepositoryCard from './components/RepositoryCard';
 
 interface GithubElementsListProps {
   className?: string;
@@ -15,8 +16,12 @@ const GithubElementsList: React.FunctionComponent<GithubElementsListProps> = ({ 
     <div className={className}>
       <div className='wrapper-flex'>
         {items.map((item: UserType) => (
-          <div className='item' key={item.id}>
-            <User user={item} />
+          <div className='item hvr-grow' key={item.id}>
+            {item?.type === 'user' ? (
+              <UserCard user={item} />
+            ) : (
+              <RepositoryCard repository={item} />
+            )}
           </div>
         ))}
       </div>

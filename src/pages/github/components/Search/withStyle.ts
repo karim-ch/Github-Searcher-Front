@@ -20,8 +20,9 @@ const StyledComponent = (component: React.ComponentProps<any>) => styled(compone
     justify-content: center;
     margin-top: 20px;
     position: relative;
-    width: 80%;
     margin-bottom: 5%;
+    width: fit-content;
+
     .dropdown-menu-title {
       margin-left: 20px;
     }

@@ -1,13 +1,13 @@
 import React from 'react';
-import { User as UserType } from '../../../../../../redux/github/actions';
+import { User } from '../../../../../../redux/github/actions';
 import withStyle from './withStyle';
 
 interface UserProps {
-  user?: UserType;
+  user?: User;
   className?: string;
 }
 
-const User: React.FunctionComponent<UserProps> = ({ user, className }) => {
+const UserCard: React.FunctionComponent<UserProps> = ({ user, className }) => {
   console.log(user);
   return (
     <div className={className}>
@@ -16,4 +16,4 @@ const User: React.FunctionComponent<UserProps> = ({ user, className }) => {
   );
 };
 
-export default withStyle(User);
+export default withStyle(UserCard);

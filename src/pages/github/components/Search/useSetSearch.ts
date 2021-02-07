@@ -4,6 +4,10 @@ import debounce from 'lodash/debounce';
 import { search } from '../../../../redux/github/actions';
 
 const options = ['users', 'repositories'];
+const getType = (type: string) => {
+  if (type === 'repositories') return 'repositories';
+  return 'users';
+};
 
 const useSetSearch = () => {
   const dispatch = useDispatch();
@@ -12,7 +16,7 @@ const useSetSearch = () => {
 
   useEffect(() => {
     if (query.length > 2) {
-      dispatch(search({ type: 'users', query }));
+      dispatch(search({ type: getType(type), query }));
     }
   }, [dispatch, query, type]);
 
