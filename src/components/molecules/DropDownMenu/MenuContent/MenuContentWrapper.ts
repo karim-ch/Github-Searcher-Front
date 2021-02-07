@@ -7,6 +7,7 @@ const MenuContentWrapper = styled.div`
   z-index: 2;
   top: 100%;
   right: 0;
+  background-color: ${themeGet('colors.white')};
 
   &.opened {
     max-height: 500px;
