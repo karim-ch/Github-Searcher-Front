@@ -7,16 +7,20 @@ const StyledComponent = (component: React.ComponentProps<any>) => styled(compone
   flex-direction: column;
   height: 100%;
 
+  em {
+    font-weight: bold;
+  }
+
+  .link {
+    text-decoration: none;
+    color: ${themeGet('colors.black')};
+  }
+
   .repository-title {
     height: 20%;
     padding: 4% 10%;
     display: flex;
     justify-content: space-between;
-
-    .link {
-      text-decoration: none;
-      color: ${themeGet('colors.blue')};
-    }
 
     svg {
       width: 30px;
@@ -31,6 +35,14 @@ const StyledComponent = (component: React.ComponentProps<any>) => styled(compone
     height: 60%;
     padding: 5% 10%;
 
+    .description {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 3; /* number of lines to show */
+      -webkit-box-orient: vertical;
+    }
+
     .details {
       text-align: left;
       font-size: 0.9rem;
@@ -40,10 +52,6 @@ const StyledComponent = (component: React.ComponentProps<any>) => styled(compone
       padding-bottom: 20px;
       font-weight: bold;
     }
-  }
-
-  em {
-    font-weight: bold;
   }
 
   .repository-footer {
@@ -58,11 +66,23 @@ const StyledComponent = (component: React.ComponentProps<any>) => styled(compone
       padding-left: 15px;
 
       &:before {
-        content: '▹';
+        content: '✔';
         position: absolute;
         left: 0;
-        color: ${themeGet('colors.blue')};
-        line-height: 12px;
+        color: ${themeGet('colors.darkBlue')};
+        padding-right: 4px;
+      }
+    }
+
+    .issues {
+      &:before {
+        content: '⚑';
+      }
+    }
+
+    .stars {
+      &:before {
+        content: '★';
       }
     }
   }

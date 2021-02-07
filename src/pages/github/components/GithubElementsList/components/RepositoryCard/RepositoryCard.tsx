@@ -33,7 +33,7 @@ const RepositoryCard: React.FunctionComponent<UserProps> = ({ repository, classN
             )}
 
             {repository?.description && (
-              <p>
+              <p className='description'>
                 <em>Description : </em>
                 {repository?.description}
               </p>
@@ -47,7 +47,19 @@ const RepositoryCard: React.FunctionComponent<UserProps> = ({ repository, classN
           </div>
         </div>
         <ul className='repository-footer'>
-          <li>{repository?.language}</li>
+          <a className='link' href={repository?.languagesUrl} target='_blank' rel='noreferrer'>
+            <li>
+              <em>{repository?.language ?? 'Unknown'}</em>
+            </li>
+          </a>
+
+          <a className='link' href={repository?.stargazersUrl} target='_blank' rel='noreferrer'>
+            <li className='stars'>{repository?.stargazersCount}</li>
+          </a>
+
+          <a className='link' href={repository?.issuesUrl} target='_blank' rel='noreferrer'>
+            <li className='issues'>{repository?.openIssues}</li>
+          </a>
         </ul>
       </Card>
     </div>

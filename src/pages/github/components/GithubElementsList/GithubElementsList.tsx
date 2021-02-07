@@ -17,7 +17,7 @@ const GithubElementsList: React.FunctionComponent<GithubElementsListProps> = ({ 
       <div className='wrapper-flex'>
         {items.map((item: UserType) => (
           <div className='item hvr-grow' key={item.id}>
-            {item?.type === 'user' ? (
+            {item?.type === 'User' ? (
               <UserCard user={item} />
             ) : (
               <RepositoryCard repository={item} />
