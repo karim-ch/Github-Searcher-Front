@@ -1,31 +1,26 @@
 import React, { useCallback } from 'react';
-import debounce from 'lodash/debounce';
-import useSetSearch from './useSetSearch';
-import withStyle from './withStyle';
 import { Icon } from '../../../../components/icons';
 import {
   DropDownMenu,
   MenuContent,
   MenuTitle,
 } from '../../../../components/molecules/DropDownMenu';
+import withStyle from './withStyle';
+import useSetSearch from './useSetSearch';
 
 interface SearchProps {
   className?: string;
 }
 
-const options = ['Users', 'Repositories'];
-
 const Search: React.FunctionComponent<SearchProps> = ({ className }) => {
-  const { setQuery } = useSetSearch();
+  const { onQueryChange, setType, options } = useSetSearch();
 
-  const handleTypeChange = useCallback(
-    (event: React.ChangeEvent<HTMLInputElement>) => {
-      debounce(setQuery, 1000)(event.target.value);
+  const onDropDownChange = useCallback(
+    (val: string) => {
+      setType(val);
     },
-    [setQuery],
+    [setType],
   );
-
-  const onDropDownChange = (val: string) => console.log(val);
 
   return (
     <div className={className}>
@@ -39,7 +34,7 @@ const Search: React.FunctionComponent<SearchProps> = ({ className }) => {
       <div className='search-inputs'>
         <input
           className='query-input'
-          onChange={handleTypeChange}
+          onChange={onQueryChange}
           placeholder='Start typing to search...'
         />
         <DropDownMenu options={options} onDropDownChange={onDropDownChange}>

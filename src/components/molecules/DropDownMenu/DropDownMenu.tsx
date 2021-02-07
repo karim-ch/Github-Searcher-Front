@@ -25,9 +25,9 @@ const DropDownMenu = ({ children, options, onDropDownChange }: DropDownMenuI) =>
   }, [setOpened]);
 
   const onChange = useCallback(
-    ({ target: { name } }) => {
-      setSelected(name);
-      onDropDownChange(name);
+    label => {
+      setSelected(label);
+      onDropDownChange(label);
       toggle();
       return null;
     },

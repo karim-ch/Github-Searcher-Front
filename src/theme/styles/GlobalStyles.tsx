@@ -46,6 +46,8 @@ const globalStyles = createGlobalStyle`
     background-color: ${themeGet('colors.white')};
     border: solid 1px ${themeGet('colors.lightGray')};
     padding: 0 20px;
+    text-transform: capitalize;
+    outline: none;
   }
   
   #root {

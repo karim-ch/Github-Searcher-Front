@@ -20,9 +20,12 @@ const MenuContentWrapper = styled.div`
 
     button {
       border: none;
-      padding: 10px;
+      padding: 15px;
       background-color: transparent;
       outline: none;
+      text-transform: capitalize;
+      text-align: left;
+
       &:hover {
         background-color: ${themeGet('colors.lightGray')};
       }
