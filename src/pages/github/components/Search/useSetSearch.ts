@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import debounce from 'lodash/debounce';
-import { search } from '../../../../redux/github/actions';
+import { clear, search } from '../../../../redux/github/actions';
 
 const options = ['users', 'repositories'];
 const getType = (type: string) => {
@@ -17,8 +17,11 @@ const useSetSearch = () => {
   useEffect(() => {
     if (query.length > 2) {
       dispatch(search({ type: getType(type), query }));
+      return;
     }
-  }, [dispatch, query, type]);
+    dispatch(clear());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [query, type]);
 
   const makeDebounce = debounce(q => setQuery(q), 1000);
 

@@ -7,51 +7,49 @@ const StyledComponent = (component: React.ComponentProps<any>) => styled(compone
   flex-direction: column;
   height: 100%;
 
-  em {
-    font-weight: bold;
-  }
-
   .link {
     text-decoration: none;
     color: ${themeGet('colors.black')};
   }
 
-  .user-title {
-    height: 20%;
-    padding: 4% 10%;
+  .user-header {
+    height: 35%;
     display: flex;
-    justify-content: space-between;
+    flex-direction: row;
+    padding: 4%;
+    img {
+      height: 75px;
+      border-radius: 50%;
+    }
 
-    svg {
-      width: 30px;
-      height: 30px;
-      &:hover {
-        color: ${themeGet('colors.darkBlue')};
+    .user-heading {
+      margin-left: 5%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: left;
+
+      .login {
+        font-weight: bold;
       }
     }
   }
 
   .user-body {
-    height: 60%;
-    padding: 5% 10%;
+    padding: 6%;
+    text-align: left;
 
-    .title {
-      padding-bottom: 20px;
-      font-weight: bold;
-    }
-
-    img {
-      width: 30%;
-      border-radius: 50%;
+    .bio {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 3; /* number of lines to show */
+      -webkit-box-orient: vertical;
     }
   }
 
-  .user-footer {
-    display: flex;
-    overflow: hidden;
-    list-style: none;
-    justify-content: space-between;
-    padding: 0 10%;
+  em {
+    font-weight: bold;
   }
 `;
 

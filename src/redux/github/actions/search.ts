@@ -1,5 +1,5 @@
 import { Dispatch } from 'redux';
-import axios from 'axios';
+import { handleError, githubSearcherClient } from '../../../utils/client';
 import {
   SearchDispatchTypes,
   SearchQuery,
@@ -13,13 +13,13 @@ const search = ({ type, query }: SearchQuery) => async (
 ) => {
   try {
     dispatch({ type: SEARCH_LOADING });
-    const { data } = await axios.post('http://localhost:7000/api/search', {
+    const { data } = await githubSearcherClient.post('/api/search', {
       type,
       query,
     });
     dispatch({ type: SEARCH_SUCCESS, payload: data });
   } catch (error) {
-    dispatch({ type: SEARCH_FAIL });
+    dispatch({ type: SEARCH_FAIL, payload: handleError(error) });
   }
 };
 

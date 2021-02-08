@@ -1,4 +1,5 @@
 import {
+  CLEAR_SEARCH,
   SEARCH_FAIL,
   SEARCH_LOADING,
   SEARCH_SUCCESS,
@@ -9,6 +10,7 @@ import {
 interface DefaultStateI {
   loading: boolean;
   search?: SearchType;
+  error?: string;
 }
 
 const defaultState: DefaultStateI = {
@@ -23,6 +25,7 @@ const searchReducer = (
     case SEARCH_FAIL:
       return {
         loading: false,
+        error: action.payload,
       };
     case SEARCH_LOADING:
       return {
@@ -32,6 +35,10 @@ const searchReducer = (
       return {
         loading: false,
         search: action.payload,
+      };
+    case CLEAR_SEARCH:
+      return {
+        loading: false,
       };
     default:
       return state;

@@ -13,7 +13,7 @@ const myTheme: DefaultTheme = {
     white: '#FFFFFF',
     blue: '#1057fb',
     black: '#000',
-    darkBlue: '#0a192f',
+    darkBlue: '#1d5ebd',
     lightGray: '#dadada',
     anthracite: '#7d7d7d',
   },

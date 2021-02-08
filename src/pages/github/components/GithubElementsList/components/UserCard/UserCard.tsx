@@ -10,22 +10,47 @@ interface UserProps {
 }
 
 const UserCard: React.FunctionComponent<UserProps> = ({ user, className }) => {
-  console.log(user);
   return (
     <div className={className}>
       <Card>
-        <div className='user-title'>
-          <a rel='noreferrer' href={user?.htmlUrl} target='_blank'>
-            <Icon name='GitHub' />
-          </a>
-        </div>
-        <div className='user-body'>
-          <h4 className='title'>{user?.login}</h4>
-          <div className='details'>
-            <img src={user?.avatarUrl} alt={user?.login} loading='lazy' />
+        <div className='user-header'>
+          <img src={user?.avatarUrl} alt={user?.login} loading='lazy' />
+          <div className='user-heading'>
+            <a href={user?.htmlUrl} target='_blank' rel='noreferrer' className='link'>
+              <h4 className='login'>@{user?.login}</h4>
+            </a>
+
+            <h4 className='name'>{user?.name}</h4>
+            <h6>{user?.location}</h6>
           </div>
         </div>
-        <ul className='user-footer'></ul>
+        <div className='user-body'>
+          {user?.bio && (
+            <p className='bio'>
+              <em> ✐ </em>
+              {user?.bio}
+            </p>
+          )}
+
+          {user?.createdAt && (
+            <p>
+              <em> ✓ Joined : </em>
+              {user?.createdAt}
+            </p>
+          )}
+          {user?.publicRepos && (
+            <p>
+              <em> ⚛ Repositories : </em>
+              {user?.publicRepos}
+            </p>
+          )}
+          {user?.followers && (
+            <p>
+              <em> ☆ Followers : </em>
+              {user?.followers}
+            </p>
+          )}
+        </div>
       </Card>
     </div>
   );

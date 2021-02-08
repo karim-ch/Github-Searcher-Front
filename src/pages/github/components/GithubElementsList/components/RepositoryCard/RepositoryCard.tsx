@@ -10,7 +10,6 @@ interface UserProps {
 }
 
 const RepositoryCard: React.FunctionComponent<UserProps> = ({ repository, className }) => {
-  console.log(repository);
   return (
     <div className={className}>
       <Card>
@@ -28,7 +27,7 @@ const RepositoryCard: React.FunctionComponent<UserProps> = ({ repository, classN
             {repository?.createdAt && (
               <p>
                 <em>Author : </em>
-                {repository?.owner.login}
+                {repository?.owner?.login}
               </p>
             )}
 
