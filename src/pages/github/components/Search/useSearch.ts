@@ -1,15 +1,18 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import debounce from 'lodash/debounce';
-import { clear, search } from '../../../../redux/github/actions';
+import { clear, search, SearchType } from '../../../../redux/github/actions';
 
 const options = ['users', 'repositories'];
-const getType = (type: string) => {
-  if (type === 'repositories') return 'repositories';
-  return 'users';
+// TODO Map enum to array of strings
+
+const getType = (type: string): SearchType => {
+  if (type === 'repositories') return SearchType[SearchType.repositories];
+  return SearchType[SearchType.users];
 };
 
-const useSetSearch = () => {
+const useSearch = () => {
+  // TODO: hooks types
   const dispatch = useDispatch();
   const [type, setType] = useState(options[0]);
   const [query, setQuery] = useState('');
@@ -24,7 +27,6 @@ const useSetSearch = () => {
   }, [query, type]);
 
   const makeDebounce = debounce(q => setQuery(q), 1000);
-
   /* eslint-disable react-hooks/exhaustive-deps */
   const debounceRequest = useCallback(value => makeDebounce(value), []);
 
@@ -39,4 +41,4 @@ const useSetSearch = () => {
   };
 };
 
-export default useSetSearch;
+export default useSearch;

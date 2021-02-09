@@ -1,5 +1,5 @@
 import { Dispatch } from 'redux';
-import { handleError, githubSearcherClient } from '../../../utils/client';
+import githubSearcherClient from '../../../utils/client';
 import {
   SearchDispatchTypes,
   SearchQuery,
@@ -19,7 +19,7 @@ const search = ({ type, query }: SearchQuery) => async (
     });
     dispatch({ type: SEARCH_SUCCESS, payload: data });
   } catch (error) {
-    dispatch({ type: SEARCH_FAIL, payload: handleError(error) });
+    dispatch({ type: SEARCH_FAIL, payload: error });
   }
 };
 

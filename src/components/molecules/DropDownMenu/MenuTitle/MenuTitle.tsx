@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import isFunction from 'lodash/isFunction';
 import { DropDownMenuContext } from '../DropDownMenu';
 
-interface MenuTitleI {
+interface MenuTitleInterface {
   children: React.ReactElement | ((props: Props) => React.ReactElement);
 }
 
@@ -11,7 +11,7 @@ interface Props {
   toggle: () => null;
 }
 
-const MenuTitle = ({ children, ...rest }: MenuTitleI) => {
+const MenuTitle: React.FunctionComponent<MenuTitleInterface> = ({ children, ...rest }) => {
   const { toggle, selected } = useContext(DropDownMenuContext);
 
   return isFunction(children) ? (

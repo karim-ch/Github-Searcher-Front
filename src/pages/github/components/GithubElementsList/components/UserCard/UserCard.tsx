@@ -2,7 +2,6 @@ import React from 'react';
 import { User } from '../../../../../../redux/github/actions';
 import withStyle from './withStyle';
 import Card from '../../../../../../components/atoms/Card/Card';
-import { Icon } from '../../../../../../components/icons';
 
 interface UserProps {
   user?: User;
@@ -32,24 +31,20 @@ const UserCard: React.FunctionComponent<UserProps> = ({ user, className }) => {
             </p>
           )}
 
-          {user?.createdAt && (
-            <p>
-              <em> ✓ Joined : </em>
-              {user?.createdAt}
-            </p>
-          )}
-          {user?.publicRepos && (
-            <p>
-              <em> ⚛ Repositories : </em>
-              {user?.publicRepos}
-            </p>
-          )}
-          {user?.followers && (
-            <p>
-              <em> ☆ Followers : </em>
-              {user?.followers}
-            </p>
-          )}
+          <p>
+            <em> ✓ Joined : </em>
+            {user?.createdAt}
+          </p>
+
+          <p>
+            <em> ⚛ Repositories : </em>
+            {user?.publicRepos}
+          </p>
+
+          <p>
+            <em> ☆ Followers : </em>
+            {user?.followers}
+          </p>
         </div>
       </Card>
     </div>

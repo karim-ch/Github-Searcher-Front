@@ -11,6 +11,7 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
   search: searchReducer,
+  // other reducers
 });
 
 export default persistReducer(persistConfig, rootReducer);

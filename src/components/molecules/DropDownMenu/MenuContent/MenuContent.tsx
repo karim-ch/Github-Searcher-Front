@@ -3,19 +3,15 @@ import { DropDownMenuContext } from '../DropDownMenu';
 import OutsideClickHandler from 'react-outside-click-handler';
 import MenuContentWrapper from './MenuContentWrapper';
 
-interface MenuContentI {
+interface MenuContentInterface {
   className?: string;
 }
 
-const MenuContent = ({ className }: MenuContentI) => {
+const MenuContent: React.FunctionComponent<MenuContentInterface> = ({ className }) => {
   const { opened, onChange, options, toggle } = useContext(DropDownMenuContext);
 
   return opened ? (
-    <OutsideClickHandler
-      onOutsideClick={() => {
-        toggle();
-      }}
-    >
+    <OutsideClickHandler onOutsideClick={toggle}>
       <MenuContentWrapper className={`${className || ''} ${opened ? 'opened' : ''}`}>
         {options.map(label => (
           <button key={label} onClick={() => onChange(label)}>

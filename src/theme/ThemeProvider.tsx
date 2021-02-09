@@ -1,10 +1,7 @@
 import React from 'react';
 import { ThemeProvider as StyledTheme } from 'styled-components';
-import Context from './context';
 import GlobalStyles from './styles/GlobalStyles';
 import theme from './appTheme';
-
-export const getTheme = () => ({ ...theme });
 
 interface Children {
   children: React.ReactElement;
@@ -12,9 +9,9 @@ interface Children {
 
 const ThemeProvider = ({ children }: Children) => {
   return (
-    <StyledTheme theme={{ ...theme }}>
+    <StyledTheme theme={theme}>
       <GlobalStyles />
-      <Context.Provider value={getTheme()}>{children}</Context.Provider>
+      {children}
     </StyledTheme>
   );
 };

@@ -38,16 +38,6 @@ const globalStyles = createGlobalStyle`
       margin: 0;
     }
   }
-    
-  input {
-    border-radius: 3px;
-    border: solid 1px ${themeGet('colors.lightGray')};
-    padding: 14px;
-    ::placeholder {
-      color: ${themeGet('colors.anthracite')};
-      font-size: 0.9rem;
-    }
-  }
   
   .dropdown-menu-title {
     color: ${themeGet('colors.anthracite')};

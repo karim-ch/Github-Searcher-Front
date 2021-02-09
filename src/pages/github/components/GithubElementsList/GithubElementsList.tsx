@@ -1,6 +1,6 @@
 import React from 'react';
 import isEmpty from 'lodash/isEmpty';
-import useSearch from './useSearch';
+import useSearchResult from './useSearchResult';
 import { User, Repository } from '../../../../redux/github/actions';
 import UserCard from './components/UserCard';
 import withStyle from './withStyle';
@@ -11,10 +11,14 @@ interface GithubElementsListProps {
 }
 
 const GithubElementsList: React.FunctionComponent<GithubElementsListProps> = ({ className }) => {
-  const { items, loading, error } = useSearch();
+  const { items, loading, error, type } = useSearchResult();
 
   if (error) {
-    return <div className={className}>{error}</div>;
+    return (
+      <div className={className}>
+        <h1>Something Went Wrong ...</h1>
+      </div>
+    );
   }
 
   if (loading) {
@@ -33,26 +37,15 @@ const GithubElementsList: React.FunctionComponent<GithubElementsListProps> = ({ 
     );
   }
 
-  // For some reason, there's some repository without names, and users without logins so we will test to display it or not
   return (
     <div className={className}>
       <div className='wrapper-flex'>
-        {!isEmpty(items) &&
-          items.map((item: User | Repository) => {
-            if ((item as User).login)
-              return (
-                <div className='item hvr-grow' key={item.id}>
-                  <UserCard user={item} />
-                </div>
-              );
-            if ((item as Repository).name)
-              return (
-                <div className='item hvr-grow' key={item.id}>
-                  <RepositoryCard repository={item} />
-                </div>
-              );
-            return null;
-          })}
+        {items &&
+          items.map((item: User | Repository) => (
+            <div className='item hvr-grow' key={item.id}>
+              {type === 'User' ? <UserCard user={item} /> : <RepositoryCard repository={item} />}
+            </div>
+          ))}
       </div>
     </div>
   );

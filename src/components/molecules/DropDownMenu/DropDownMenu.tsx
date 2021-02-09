@@ -7,15 +7,20 @@ export const DropDownMenuContext = React.createContext({
   selected: '',
   options: [''],
 });
+// TODO : make interface for the context
 
-interface DropDownMenuI {
+interface DropDownMenuInterface {
   children: React.ReactElement[];
   options: string[];
   onDropDownChange: (val: string) => void;
   className?: string;
 }
 
-const DropDownMenu = ({ children, options, onDropDownChange }: DropDownMenuI) => {
+const DropDownMenu: React.FunctionComponent<DropDownMenuInterface> = ({
+  children,
+  options,
+  onDropDownChange,
+}) => {
   const [opened, setOpened] = useState(false);
   const [selected, setSelected] = useState(options[0]);
 
