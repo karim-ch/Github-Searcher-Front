@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import get from 'lodash/get';
-import { RootStore } from '@redux/store';
 import { Error, GithubSearch } from '@redux/github/actions';
+import { getSearchState } from '@redux/github/selectors';
 
 interface UseSearchResult {
   items: GithubSearch['items'];
@@ -11,7 +11,7 @@ interface UseSearchResult {
 }
 
 const useSearchResult = (): UseSearchResult => {
-  const data = useSelector((state: RootStore) => state.search);
+  const data = useSelector(getSearchState);
   const items = get(data, 'data.items');
   const loading = get(data, 'loading', false);
   const error = get(data, 'error');

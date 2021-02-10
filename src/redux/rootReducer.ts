@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { searchReducer } from './github/reducers';
+import { searchReducer } from './github/reducer';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
