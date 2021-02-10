@@ -5,9 +5,7 @@ import {
   MenuContent,
   MenuTitle,
 } from '../../../../components/molecules/DropDownMenu';
-
 import { SearchInput } from '../../../../components/atoms';
-
 import withStyle from './withStyle';
 import useSearch from './useSearch';
 
@@ -16,7 +14,7 @@ interface SearchProps {
 }
 
 const Search: React.FunctionComponent<SearchProps> = ({ className }) => {
-  const { onQueryChange, setType, options } = useSearch();
+  const { onQueryChange, setType, options, defaultQuery, defaultType } = useSearch();
 
   const onDropDownChange = useCallback(
     (val: string) => {
@@ -39,8 +37,13 @@ const Search: React.FunctionComponent<SearchProps> = ({ className }) => {
           placeholder='Start typing to search...'
           onChange={onQueryChange}
           className='query-input'
+          defaultValue={defaultQuery}
         />
-        <DropDownMenu options={options} onDropDownChange={onDropDownChange}>
+        <DropDownMenu
+          options={options}
+          onDropDownChange={onDropDownChange}
+          defaultValue={defaultType}
+        >
           <MenuTitle>
             {({ selected, toggle }) => (
               <button className='dropdown-menu-title' onClick={toggle}>

@@ -4,7 +4,7 @@ import { RootStore } from '../../../../redux/store';
 
 const useSearchResult = () => {
   const data = useSelector((state: RootStore) => state.search);
-  const items = get(data, 'search.items');
+  const items = get(data, 'data.items');
   const loading = get(data, 'loading', false);
   const error = get(data, 'error', null);
 

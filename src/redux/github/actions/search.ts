@@ -17,9 +17,9 @@ const search = ({ type, query }: SearchQuery) => async (
       type,
       query,
     });
-    dispatch({ type: SEARCH_SUCCESS, payload: data });
+    dispatch({ type: SEARCH_SUCCESS, payload: { ...data, query, type } });
   } catch (error) {
-    dispatch({ type: SEARCH_FAIL, payload: error });
+    dispatch({ type: SEARCH_FAIL, payload: { error, query, type } });
   }
 };
 

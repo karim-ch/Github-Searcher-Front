@@ -1,4 +1,3 @@
-import { AxiosError } from 'axios';
 import {
   CLEAR_SEARCH,
   SEARCH_FAIL,
@@ -6,12 +5,13 @@ import {
   SEARCH_SUCCESS,
   SearchDispatchTypes,
   GithubSearch,
+  Error,
 } from '../actions';
 
 interface DefaultStateInterface {
   loading: boolean;
-  search?: GithubSearch;
-  error?: AxiosError;
+  data?: GithubSearch;
+  error?: Error;
 }
 
 const defaultState: DefaultStateInterface = {
@@ -35,7 +35,7 @@ const searchReducer = (
     case SEARCH_SUCCESS:
       return {
         loading: false,
-        search: action.payload,
+        data: action.payload,
       };
     case CLEAR_SEARCH:
       return defaultState;

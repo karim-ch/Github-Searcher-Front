@@ -15,7 +15,7 @@ export interface SearchLoading {
 
 export interface SearchFail {
   type: typeof SEARCH_FAIL;
-  payload: AxiosError;
+  payload: Error;
 }
 
 export interface SearchSuccess {
@@ -161,8 +161,12 @@ export interface SearchQuery {
   type: SearchType;
 }
 
-export type GithubSearch = {
+export type GithubSearch = SearchQuery & {
   totalCount: number;
   incompleteResults: boolean;
   items: (User | Repository)[];
+};
+
+export type Error = SearchQuery & {
+  error: AxiosError | any;
 };

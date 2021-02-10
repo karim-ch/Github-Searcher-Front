@@ -14,15 +14,17 @@ interface DropDownMenuInterface {
   options: string[];
   onDropDownChange: (val: string) => void;
   className?: string;
+  defaultValue?: string;
 }
 
 const DropDownMenu: React.FunctionComponent<DropDownMenuInterface> = ({
   children,
   options,
   onDropDownChange,
+  defaultValue,
 }) => {
   const [opened, setOpened] = useState(false);
-  const [selected, setSelected] = useState(options[0]);
+  const [selected, setSelected] = useState(defaultValue || options[0]);
 
   const toggle = useCallback(() => {
     setOpened(v => !v);
