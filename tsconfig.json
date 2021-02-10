@@ -1,4 +1,5 @@
 {
+  "extends": "./tsconfig.base.json",
   "compilerOptions": {
     "target": "es5",
     "lib": [
@@ -18,9 +19,19 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "typeRoots": [
+      "./types"
+    ]
   },
   "include": [
-    "src"
+    "src",
+    ".eslintrc.js"
+  ],
+  "exclude": [
+    "config-overrides.js"
+  ],
+  "typeRoots": [
+    "./types"
   ]
 }

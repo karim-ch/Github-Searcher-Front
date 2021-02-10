@@ -1,5 +1,5 @@
 import { Dispatch } from 'redux';
-import githubSearcherClient from '../../../utils/client';
+import githubSearcherClient from '@utils/client';
 import {
   SearchDispatchTypes,
   SearchQuery,

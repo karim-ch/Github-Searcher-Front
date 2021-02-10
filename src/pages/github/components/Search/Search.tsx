@@ -1,11 +1,7 @@
 import React, { useCallback } from 'react';
-import { Icon } from '../../../../components/icons';
-import {
-  DropDownMenu,
-  MenuContent,
-  MenuTitle,
-} from '../../../../components/molecules/DropDownMenu';
-import { SearchInput } from '../../../../components/atoms';
+import { Icon } from '@components/icons';
+import { DropDownMenu, MenuContent, MenuTitle } from '@components/molecules/DropDownMenu';
+import { SearchInput } from '@components/atoms';
 import withStyle from './withStyle';
 import useSearch from './useSearch';
 

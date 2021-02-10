@@ -1,11 +1,11 @@
 import React from 'react';
 import isEmpty from 'lodash/isEmpty';
 import useSearchResult from './useSearchResult';
-import { User, Repository } from '../../../../redux/github/actions';
+import { User, Repository } from '@redux/github/actions';
 import UserCard from './components/UserCard';
 import withStyle from './withStyle';
 import RepositoryCard from './components/RepositoryCard';
-import LoadingCard from '../../../../components/molecules/CardLoading/';
+import LoadingCard from '@components/molecules/CardLoading/';
 
 interface GithubElementsListProps {
   className?: string;

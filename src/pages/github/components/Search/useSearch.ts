@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import debounce from 'lodash/debounce';
-import { clear, search, SearchType } from '../../../../redux/github/actions';
+import { clear, search, SearchType } from '@redux/github/actions';
 import useInitials from './useInitials';
 
 interface UseSearchHook {

@@ -1,7 +1,7 @@
 import React from 'react';
-import { Repository } from '../../../../../../redux/github/actions';
-import { Icon } from '../../../../../../components/icons';
-import Card from '../../../../../../components/molecules/Card';
+import { Repository } from '@redux/github/actions';
+import { Icon } from '@components/icons';
+import Card from '@components/molecules/Card';
 import withStyle from './withStyle';
 
 interface UserProps {

@@ -1,6 +1,6 @@
 import React, { useContext, useRef } from 'react';
 import { DropDownMenuContext } from '../DropDownMenu';
-import useOnClickOutside from '../../../../shared/hooks/useOnClickOutside';
+import useOnClickOutside from '@shared/hooks/useOnClickOutside';
 import MenuContentWrapper from './MenuContentWrapper';
 
 interface MenuContentInterface {

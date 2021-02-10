@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import get from 'lodash/get';
-import { RootStore } from '../../../../redux/store';
-import { Error, GithubSearch } from '../../../../redux/github/actions';
+import { RootStore } from '@redux/store';
+import { Error, GithubSearch } from '@redux/github/actions';
 
 interface UseSearchResult {
   items: GithubSearch['items'];

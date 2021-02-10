@@ -1,6 +1,6 @@
 import get from 'lodash/get';
 import { useSelector } from 'react-redux';
-import { RootStore } from '../../../../redux/store';
+import { RootStore } from '@redux/store';
 
 interface UseInitialsHook {
   initialQuery: string;

@@ -1,15 +1,13 @@
 import React from 'react';
-import {
-  IconGitHub,
-  IconFolder,
-  IconArrow,
-  Star,
-  Checked,
-  Pen,
-  Issue,
-  Language,
-  Company,
-} from '../../components/icons';
+import IconGitHub from './github';
+import IconFolder from './folder';
+import IconArrow from './arrow';
+import Star from './star';
+import Checked from './checked';
+import Pen from './pen';
+import Issue from './issue';
+import Language from './language';
+import Company from './company';
 
 interface IconProps {
   name: string;

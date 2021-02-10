@@ -1,10 +1,1 @@
 export { default as Icon } from './icon';
-export { default as IconGitHub } from './github';
-export { default as IconFolder } from './folder';
-export { default as IconArrow } from './arrow';
-export { default as Star } from './star';
-export { default as Checked } from './checked';
-export { default as Pen } from './pen';
-export { default as Issue } from './issue';
-export { default as Language } from './language';
-export { default as Company } from './company';
