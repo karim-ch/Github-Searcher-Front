@@ -1,12 +1,12 @@
 import React from 'react';
 import styled, { StyledComponent } from 'styled-components';
+import { themeGet } from '@styled-system/theme-get';
 
 const Component = (component: React.ComponentProps<any>): StyledComponent<any, any> => styled(
   component,
 )`
-  text-align: center;
-  text-align: -webkit-center;
-  margin-top: 10%;
+  box-shadow: ${themeGet('colors.cardShadow')};
+  height: 100%;
 `;
 
 export default Component;

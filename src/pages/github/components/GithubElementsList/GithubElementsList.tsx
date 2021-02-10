@@ -5,13 +5,14 @@ import { User, Repository } from '../../../../redux/github/actions';
 import UserCard from './components/UserCard';
 import withStyle from './withStyle';
 import RepositoryCard from './components/RepositoryCard';
+import LoadingCard from '../../../../components/molecules/CardLoading/';
 
 interface GithubElementsListProps {
   className?: string;
 }
 
 const GithubElementsList: React.FunctionComponent<GithubElementsListProps> = ({ className }) => {
-  const { items, loading, error, type } = useSearchResult();
+  const { items, error, type, loading } = useSearchResult();
 
   if (error) {
     return (
@@ -24,7 +25,11 @@ const GithubElementsList: React.FunctionComponent<GithubElementsListProps> = ({ 
   if (loading) {
     return (
       <div className={className}>
-        <h1>Loading ...</h1>
+        <div className='wrapper-flex'>
+          {Array.from({ length: 6 }).map(() => (
+            <LoadingCard className='item' />
+          ))}
+        </div>
       </div>
     );
   }

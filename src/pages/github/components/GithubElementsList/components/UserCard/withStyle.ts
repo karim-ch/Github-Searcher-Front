@@ -1,8 +1,10 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { StyledComponent } from 'styled-components';
 import { themeGet } from '@styled-system/theme-get';
 
-const StyledComponent = (component: React.ComponentProps<any>) => styled(component)`
+const Component = (component: React.ComponentProps<any>): StyledComponent<any, any> => styled(
+  component,
+)`
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -36,7 +38,7 @@ const StyledComponent = (component: React.ComponentProps<any>) => styled(compone
   }
 
   .user-body {
-    padding: 6%;
+    padding: 3% 6% 7% 6%;
     text-align: left;
 
     .bio {
@@ -48,9 +50,15 @@ const StyledComponent = (component: React.ComponentProps<any>) => styled(compone
     }
   }
 
+  svg {
+    width: 14px;
+    height: 14px;
+    margin-right: 6px;
+  }
+
   em {
     font-weight: bold;
   }
 `;
 
-export default StyledComponent;
+export default Component;

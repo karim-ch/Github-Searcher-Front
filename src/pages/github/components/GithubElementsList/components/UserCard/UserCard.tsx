@@ -1,7 +1,8 @@
 import React from 'react';
 import { User } from '../../../../../../redux/github/actions';
 import withStyle from './withStyle';
-import Card from '../../../../../../components/atoms/Card/Card';
+import { Card } from '../../../../../../components/molecules';
+import { Icon } from '../../../../../../components/icons';
 
 interface UserProps {
   user?: User;
@@ -26,24 +27,35 @@ const UserCard: React.FunctionComponent<UserProps> = ({ user, className }) => {
         <div className='user-body'>
           {user?.bio && (
             <p className='bio'>
-              <em> ✐ </em>
+              <Icon name='Pen' />
               {user?.bio}
             </p>
           )}
 
+          {user?.company && (
+            <p>
+              <Icon name='Company' />
+              <em>Company : </em>
+              {user?.company ?? 0}
+            </p>
+          )}
+
           <p>
-            <em> ✓ Joined : </em>
-            {user?.createdAt}
+            <Icon name='Checked' />
+            <em>Joined : </em>
+            {new Date(user?.createdAt ?? '').toDateString()}
           </p>
 
           <p>
-            <em> ⚛ Repositories : </em>
-            {user?.publicRepos}
+            <Icon name='Folder' />
+            <em>Repositories : </em>
+            {user?.publicRepos ?? 0}
           </p>
 
           <p>
-            <em> ☆ Followers : </em>
-            {user?.followers}
+            <Icon name='Star' />
+            <em>Followers : </em>
+            {user?.followers ?? 0}
           </p>
         </div>
       </Card>

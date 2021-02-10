@@ -45,7 +45,6 @@ export type User = {
   type: string;
   siteAdmin: boolean;
   score: number;
-
   name: string;
   company: null;
   blog: string;

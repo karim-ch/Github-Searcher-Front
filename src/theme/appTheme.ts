@@ -16,6 +16,7 @@ const myTheme: DefaultTheme = {
     darkBlue: '#1d5ebd',
     lightGray: '#dadada',
     anthracite: '#7d7d7d',
+    cardShadow: 'rgba(0, 0, 0, 0.1) 0 0 10px 0',
   },
 };
 

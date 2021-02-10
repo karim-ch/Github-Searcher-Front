@@ -4,20 +4,26 @@ import debounce from 'lodash/debounce';
 import { clear, search, SearchType } from '../../../../redux/github/actions';
 import useInitials from './useInitials';
 
-const options = Object.keys(SearchType).map(v => v);
+interface UseSearchHook {
+  setType: (value: string | ((prevState: string) => string)) => void;
+  onQueryChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  options: string[];
+  defaultQuery: string;
+  defaultType: string;
+}
 
+const options = Object.keys(SearchType);
 const getType = (type: string): SearchType => {
   if (type === 'repositories') return SearchType[SearchType.repositories];
   return SearchType[SearchType.users];
 };
 
-// TODO: hooks types
-const useSearch = () => {
+const useSearch = (): UseSearchHook => {
   const dispatch = useDispatch();
   const { initialType, initialQuery } = useInitials(options);
-  const [type, setType] = useState(initialType);
-  const [query, setQuery] = useState(initialQuery);
-  const [debouncedQuery, setDebouncedQuery] = useState('');
+  const [type, setType] = useState<string>(initialType);
+  const [query, setQuery] = useState<string>(initialQuery);
+  const [debouncedQuery, setDebouncedQuery] = useState<string>('');
 
   useEffect(() => {
     if (query.length <= 2) {
@@ -31,8 +37,8 @@ const useSearch = () => {
   }, [debouncedQuery, type]);
 
   const makeDebounce = debounce(q => setDebouncedQuery(q), 1000);
-  /* eslint-disable react-hooks/exhaustive-deps */
-  const debounceRequest = useCallback(value => makeDebounce(value), []);
+  /* eslinsett-disable react-hooks/exhaustive-deps */
+  const debounceRequest = useCallback(value => makeDebounce(value), [makeDebounce]);
 
   const onQueryChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     debounceRequest(event.target.value);

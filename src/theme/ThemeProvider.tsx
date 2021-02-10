@@ -7,7 +7,7 @@ interface Children {
   children: React.ReactElement;
 }
 
-const ThemeProvider = ({ children }: Children) => {
+const ThemeProvider: React.FunctionComponent<Children> = ({ children }) => {
   return (
     <StyledTheme theme={theme}>
       <GlobalStyles />

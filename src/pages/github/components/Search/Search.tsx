@@ -45,9 +45,13 @@ const Search: React.FunctionComponent<SearchProps> = ({ className }) => {
           defaultValue={defaultType}
         >
           <MenuTitle>
-            {({ selected, toggle }) => (
-              <button className='dropdown-menu-title' onClick={toggle}>
+            {({ selected, toggle, opened }) => (
+              <button
+                className={`dropdown-menu-title ${opened ? '--opened' : ''}`}
+                onClick={toggle}
+              >
                 {selected}
+                <Icon name='Arrow' />
               </button>
             )}
           </MenuTitle>

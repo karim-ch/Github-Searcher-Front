@@ -1,8 +1,10 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { StyledComponent } from 'styled-components';
 import { themeGet } from '@styled-system/theme-get';
 
-const StyledComponent = (component: React.ComponentProps<any>) => styled(component)`
+const Component = (component: React.ComponentProps<any>): StyledComponent<any, any> => styled(
+  component,
+)`
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -32,8 +34,15 @@ const StyledComponent = (component: React.ComponentProps<any>) => styled(compone
   }
 
   .repository-body {
-    height: 60%;
-    padding: 5% 10%;
+    height: 80%;
+    padding: 3% 6% 7% 6%;
+    text-align: left;
+
+    svg {
+      width: 14px;
+      height: 14px;
+      margin-right: 6px;
+    }
 
     .description {
       overflow: hidden;
@@ -42,50 +51,11 @@ const StyledComponent = (component: React.ComponentProps<any>) => styled(compone
       -webkit-line-clamp: 3; /* number of lines to show */
       -webkit-box-orient: vertical;
     }
-
-    .details {
-      text-align: left;
-      font-size: 0.9rem;
-    }
-
     .title {
       padding-bottom: 20px;
       font-weight: bold;
     }
   }
-
-  .repository-footer {
-    display: flex;
-    overflow: hidden;
-    list-style: none;
-    justify-content: space-between;
-    padding: 0 10%;
-
-    li {
-      position: relative;
-      padding-left: 15px;
-
-      &:before {
-        content: '✔';
-        position: absolute;
-        left: 0;
-        color: ${themeGet('colors.darkBlue')};
-        padding-right: 4px;
-      }
-    }
-
-    .issues {
-      &:before {
-        content: '⚑';
-      }
-    }
-
-    .stars {
-      &:before {
-        content: '★';
-      }
-    }
-  }
 `;
 
-export default StyledComponent;
+export default Component;

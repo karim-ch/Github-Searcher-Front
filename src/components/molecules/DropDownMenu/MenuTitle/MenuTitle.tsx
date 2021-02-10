@@ -8,14 +8,15 @@ interface MenuTitleInterface {
 
 interface Props {
   selected: string;
-  toggle: () => null;
+  toggle: () => void;
+  opened: boolean;
 }
 
 const MenuTitle: React.FunctionComponent<MenuTitleInterface> = ({ children, ...rest }) => {
-  const { toggle, selected } = useContext(DropDownMenuContext);
+  const { toggle, selected, opened } = useContext(DropDownMenuContext);
 
   return isFunction(children) ? (
-    children({ selected, toggle })
+    children({ selected, toggle, opened })
   ) : (
     <div onClick={() => toggle()} {...rest}>
       {children}

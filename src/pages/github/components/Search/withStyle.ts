@@ -1,8 +1,10 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { StyledComponent } from 'styled-components';
 import { themeGet } from '@styled-system/theme-get';
 
-const StyledComponent = (component: React.ComponentProps<any>) => styled(component)`
+const Component = (component: React.ComponentProps<any>): StyledComponent<any, any> => styled(
+  component,
+)`
   .search-header {
     display: flex;
     justify-content: center;
@@ -25,6 +27,25 @@ const StyledComponent = (component: React.ComponentProps<any>) => styled(compone
 
     .dropdown-menu-title {
       margin-left: 20px;
+      color: ${themeGet('colors.anthracite')};
+      background-color: ${themeGet('colors.white')};
+      border: solid 1px ${themeGet('colors.lightGray')};
+      padding: 0 20px;
+      text-transform: capitalize;
+      outline: none;
+
+      > svg {
+        fill: ${themeGet('colors.anthracite')};
+        margin-left: 5px;
+        width: 9px;
+        height: 9px;
+      }
+    }
+    .--opened {
+      > svg {
+        transform: rotate(180deg);
+        transition: transform 0.5s;
+      }
     }
   }
 
@@ -45,4 +66,4 @@ const StyledComponent = (component: React.ComponentProps<any>) => styled(compone
   }
 `;
 
-export default StyledComponent;
+export default Component;

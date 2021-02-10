@@ -1,20 +1,26 @@
 import React, { useState, useCallback } from 'react';
 
-export const DropDownMenuContext = React.createContext({
+type ContextProps = {
+  opened: boolean;
+  toggle: () => void;
+  onChange: (val: string) => void;
+  selected: string;
+  options: string[];
+};
+export const DropDownMenuContext = React.createContext<ContextProps>({
   opened: false,
   toggle: () => null,
   onChange: (val: string) => null,
   selected: '',
   options: [''],
 });
-// TODO : make interface for the context
 
 interface DropDownMenuInterface {
   children: React.ReactElement[];
   options: string[];
   onDropDownChange: (val: string) => void;
   className?: string;
-  defaultValue?: string;
+  defaultValue: string;
 }
 
 const DropDownMenu: React.FunctionComponent<DropDownMenuInterface> = ({
@@ -23,12 +29,11 @@ const DropDownMenu: React.FunctionComponent<DropDownMenuInterface> = ({
   onDropDownChange,
   defaultValue,
 }) => {
-  const [opened, setOpened] = useState(false);
-  const [selected, setSelected] = useState(defaultValue || options[0]);
+  const [opened, setOpened] = useState<boolean>(false);
+  const [selected, setSelected] = useState<string>(defaultValue || options[0]);
 
   const toggle = useCallback(() => {
     setOpened(v => !v);
-    return null;
   }, [setOpened]);
 
   const onChange = useCallback(
@@ -36,7 +41,6 @@ const DropDownMenu: React.FunctionComponent<DropDownMenuInterface> = ({
       setSelected(label);
       onDropDownChange(label);
       toggle();
-      return null;
     },
     [onDropDownChange, toggle],
   );

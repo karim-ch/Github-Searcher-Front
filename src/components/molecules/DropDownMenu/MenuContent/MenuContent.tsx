@@ -1,6 +1,6 @@
-import React, { useContext } from 'react';
+import React, { useContext, useRef } from 'react';
 import { DropDownMenuContext } from '../DropDownMenu';
-import OutsideClickHandler from 'react-outside-click-handler';
+import useOnClickOutside from '../../../../shared/hooks/useOnClickOutside';
 import MenuContentWrapper from './MenuContentWrapper';
 
 interface MenuContentInterface {
@@ -10,16 +10,17 @@ interface MenuContentInterface {
 const MenuContent: React.FunctionComponent<MenuContentInterface> = ({ className }) => {
   const { opened, onChange, options, toggle } = useContext(DropDownMenuContext);
 
+  const ref = useRef(null);
+  useOnClickOutside(ref, toggle);
+
   return opened ? (
-    <OutsideClickHandler onOutsideClick={toggle}>
-      <MenuContentWrapper className={`${className || ''} ${opened ? 'opened' : ''}`}>
-        {options.map(label => (
-          <button key={label} onClick={() => onChange(label)}>
-            {label}
-          </button>
-        ))}
-      </MenuContentWrapper>
-    </OutsideClickHandler>
+    <MenuContentWrapper ref={ref} className={`${className || ''} ${opened ? 'opened' : ''}`}>
+      {options.map(label => (
+        <button key={label} onClick={() => onChange(label)}>
+          {label}
+        </button>
+      ))}
+    </MenuContentWrapper>
   ) : null;
 };
 

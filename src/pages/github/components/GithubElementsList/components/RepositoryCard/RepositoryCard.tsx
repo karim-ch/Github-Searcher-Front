@@ -1,7 +1,7 @@
 import React from 'react';
 import { Repository } from '../../../../../../redux/github/actions';
 import { Icon } from '../../../../../../components/icons';
-import Card from '../../../../../../components/atoms/Card';
+import Card from '../../../../../../components/molecules/Card';
 import withStyle from './withStyle';
 
 interface UserProps {
@@ -10,6 +10,7 @@ interface UserProps {
 }
 
 const RepositoryCard: React.FunctionComponent<UserProps> = ({ repository, className }) => {
+  console.log(repository);
   return (
     <div className={className}>
       <Card>
@@ -24,45 +25,45 @@ const RepositoryCard: React.FunctionComponent<UserProps> = ({ repository, classN
         <div className='repository-body'>
           <h4 className='title'>{repository?.name}</h4>
           <div className='details'>
-            {repository?.createdAt && (
-              <p>
-                <em>Author : </em>
-                {repository?.owner?.login}
-              </p>
-            )}
+            <p>
+              <Icon name='Github' />
+              <em>Author : </em>
+              {repository?.owner?.login}
+            </p>
 
-            {repository?.description && (
-              <p className='description'>
-                <em>Description : </em>
-                {repository?.description}
-              </p>
-            )}
-            {repository?.createdAt && (
-              <p>
-                <em>Created at : </em>
-                {repository?.createdAt}
-              </p>
-            )}
+            <p className='description'>
+              <Icon name='Pen' />
+              <em>Description : </em>
+              {repository?.description ?? 'none'}
+            </p>
+
+            <p>
+              <Icon name='Language' />
+              <em>Language : </em>
+              {repository?.language ?? 'Unknown'}
+            </p>
+
+            <p>
+              <Icon name='Star' />
+              <em>Stargazers : </em>
+              {repository?.stargazersCount ?? 0}
+            </p>
+
+            <p>
+              <Icon name='Issue' />
+              <em>Open Issues : </em>
+              {repository?.openIssues ?? 0}
+            </p>
+
+            <p>
+              <Icon name='Checked' />
+              <em>Created at : </em>
+              {new Date(repository?.createdAt ?? '').toDateString()}
+            </p>
           </div>
         </div>
-        <ul className='repository-footer'>
-          <a className='link' href={repository?.languagesUrl} target='_blank' rel='noreferrer'>
-            <li>
-              <em>{repository?.language ?? 'Unknown'}</em>
-            </li>
-          </a>
-
-          <a className='link' href={repository?.stargazersUrl} target='_blank' rel='noreferrer'>
-            <li className='stars'>{repository?.stargazersCount}</li>
-          </a>
-
-          <a className='link' href={repository?.issuesUrl} target='_blank' rel='noreferrer'>
-            <li className='issues'>{repository?.openIssues}</li>
-          </a>
-        </ul>
       </Card>
     </div>
   );
 };
-
 export default withStyle(RepositoryCard);
