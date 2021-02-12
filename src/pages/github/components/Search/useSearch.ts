@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import debounce from 'lodash/debounce';
@@ -33,12 +34,10 @@ const useSearch = (): UseSearchHook => {
     } else if (debouncedQuery.length > 2) {
       dispatch(search({ type: getType(type), query: debouncedQuery }));
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [debouncedQuery, type]);
 
-  const makeDebounce = debounce(q => setDebouncedQuery(q), 1000);
-  /* eslinsett-disable react-hooks/exhaustive-deps */
-  const debounceRequest = useCallback(value => makeDebounce(value), [makeDebounce]);
+  const makeDebounce = debounce(keyword => setDebouncedQuery(keyword), 1000);
+  const debounceRequest = useCallback(value => makeDebounce(value), []);
 
   const onQueryChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     debounceRequest(event.target.value);

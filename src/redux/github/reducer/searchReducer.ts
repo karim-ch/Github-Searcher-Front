@@ -6,7 +6,7 @@ import {
   SearchDispatchTypes,
   GithubSearch,
   Error,
-} from '../actions';
+} from '@redux/github/actions';
 
 interface DefaultStateInterface {
   loading: boolean;

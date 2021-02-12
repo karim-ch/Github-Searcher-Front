@@ -10,7 +10,6 @@ interface UserProps {
 }
 
 const RepositoryCard: React.FunctionComponent<UserProps> = ({ repository, className }) => {
-  console.log(repository);
   return (
     <div className={className}>
       <Card>

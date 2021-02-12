@@ -1,11 +1,12 @@
 import React from 'react';
 import isEmpty from 'lodash/isEmpty';
-import useSearchResult from './useSearchResult';
 import { User, Repository } from '@redux/github/actions';
+import LoadingCard from '@components/molecules/CardLoading';
+import useSearchResult from './useSearchResult';
 import UserCard from './components/UserCard';
-import withStyle from './withStyle';
 import RepositoryCard from './components/RepositoryCard';
-import LoadingCard from '@components/molecules/CardLoading/';
+
+import withStyle from './withStyle';
 
 interface GithubElementsListProps {
   className?: string;
@@ -26,8 +27,8 @@ const GithubElementsList: React.FunctionComponent<GithubElementsListProps> = ({ 
     return (
       <div className={className}>
         <div className='wrapper-flex'>
-          {Array.from({ length: 6 }).map(() => (
-            <LoadingCard className='item' />
+          {Array.from({ length: 6 }).map((_, i) => (
+            <LoadingCard key={i} className='item' />
           ))}
         </div>
       </div>

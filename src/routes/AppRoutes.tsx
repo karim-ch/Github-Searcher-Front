@@ -1,9 +1,9 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { githubStore, persistedGithubStore } from '@redux/store';
 import { PersistGate } from 'redux-persist/integration/react';
-import Github from '../pages/github';
+import { githubStore, persistedGithubStore } from '@redux/store';
+import Github from '@pages/github';
 
 const AppRoutes: React.FunctionComponent = () => (
   <Provider store={githubStore}>
