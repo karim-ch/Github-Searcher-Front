@@ -3,6 +3,17 @@ Github front end client which collect & return data from Github & caches it in R
 
 [Backend Server](https://github.com/karim-ch/githubSearcherServer)
 
+You can see live [demo](https://github-searcher-v0.netlify.app/).
+> **Note**: You must allow insecure connections flag in your browser in order to make insecure http request to the backend server.
+
+![alt Click](https://i.ibb.co/WPzzQGN/Screenshot-from-2021-02-15-00-26-31.png)
+
+And then: 
+
+![alt Click](https://i.ibb.co/V2YYFJn/Screenshot-from-2021-02-15-00-28-32.png)
+
+Please refresh the page after allowing it.
+
 # 1. Getting Started
 
 Install node modules: `npm install`
