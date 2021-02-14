@@ -14,6 +14,17 @@ And then:
 
 Please refresh the page after allowing it.
 
+# ScreenShots:
+
+- Searching for repositories: 
+
+![alt Click](https://i.ibb.co/QCWSST6/Screenshot-from-2021-02-15-00-32-27.png)
+
+- Searching for users:
+
+![alt Click](https://i.ibb.co/R4w6B5J/Screenshot-from-2021-02-15-00-35-57.png)
+
+
 # 1. Getting Started
 
 Install node modules: `npm install`
