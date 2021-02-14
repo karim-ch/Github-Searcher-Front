@@ -7,7 +7,7 @@ import Github from '@pages/github';
 
 const AppRoutes: React.FunctionComponent = () => (
   <Provider store={githubStore}>
-    <PersistGate persistor={persistedGithubStore}>
+    <PersistGate loading={'Loading...'} persistor={persistedGithubStore}>
       <Switch>
         <Route exact path='/' component={Github} />
         {/*Define Other Dashboard routes here (ie. /github-repo/:id )*/}
