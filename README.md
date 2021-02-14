@@ -22,7 +22,7 @@ Please refresh the page after allowing it.
 
 - Searching for users:
 
-![alt Click](https://i.ibb.co/R4w6B5J/Screenshot-from-2021-02-15-00-35-57.png)
+![alt Click](https://i.ibb.co/zfg4Br3/Screenshot-from-2021-02-15-00-39-19.png)
 
 
 # 1. Getting Started
